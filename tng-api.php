@@ -56,13 +56,13 @@ class TNGAPIAccess
 	/** 
 	*	Remote Connect
 	*
-	*	Make the connection to WordPress
+	*	Make the connection to TNG
 	*
 	*	@author		Nate Jacobs
 	*	@date		3/6/13
 	*	@since		1.0
 	*
-	*	@param		
+	*	@param		array $url
 	*/
 	private function remote_request( $url )
 	{
