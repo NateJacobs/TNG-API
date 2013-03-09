@@ -126,7 +126,7 @@ class TNGAPIAccess
 	*
 	*	@param		
 	*/
-	public function build_url( $type = '', $args = '' )
+	private function build_url( $type = '', $args = '' )
 	{
 		// Is the type of URL to construct empty?
 		if( empty( $type ) )
