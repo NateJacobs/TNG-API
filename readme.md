@@ -287,7 +287,7 @@ public function family_query( $id, $tree )
 }
 ```
 
-#### Working the data
+#### Working with the Data
 
 This section of code is used to display the data returned from TNG. You will place this someplace within your theme files. First we need to get the reference to the plugin class.
 
@@ -371,7 +371,7 @@ Check if an error is returned, if it is echo out the message.
 ```php
 if( is_wp_error( $person ) )
 {
-	echo $family->get_error_message().'<br>';
+	echo $family->get_error_message();
 }
 else
 {
@@ -527,12 +527,9 @@ object(stdClass)#231 (6) {
 ```
 #### Displaying the Data
 
-You can now take these objects and loop through them with foreach statements to get the data you are looking for. For a person query if you just want the person first and last name you can 
-```php 
-echo $person->firstname.' '.$person->lastname;
-``` 
+You can now take these objects and loop through them with foreach statements to get the data you are looking for. For a person query if you just want the person's first and last name you can ```php echo $person->firstname.' '.$person->lastname; ```.
 
-This will display ```Bridget Mary Boyce``` in my person query. If you are looking for the DOB you will need to use a foreach loop.
+This will display ```Bridget Mary Boyce``` for my person query. If you are looking for the DOB you will need to use a foreach loop.
 
 ```php
 foreach( $person->events as $events )
@@ -546,7 +543,7 @@ This will display ```23 FEB 1902```.
 
 #### Future Potential
 
-I mentioned in the beginning there is an authentication file in TNG. This is supposed to provide a simple authentication method for the API. From what I can tell, it is not in fact doing that. All you have to do is pass a parameter of ```&tngusername=USERNAME``` as part of the parameter. TNG will take that username and run a check on the database to see if the user exists. As it stands now the code does check the TNG database, but does not do any authentication. In fact, it actually sets the abilty to see living data to false even if the username passed has rights to see living person information. 
+I mentioned in the beginning there is an authentication file in TNG. This is supposed to provide a simple authentication method for the API. From what I can tell, it is not in fact doing that. All you have to do is pass a parameter of ```&tngusername=USERNAME``` as part of the URL. TNG will take that username and run a check on the database (line 12) to see if the user exists. As it stands now the code does check the TNG database, but does not do any authentication. In fact, it actually sets the abilty to see living data to false even if the username passed has rights to see living person information. 
 
 The API needs quite a bit of work before it becomes a fully functional API to your data in the TNG database. However, it is still useful if you want to keep TNG as a seperate site and simply display little bits of information about your family on your WordPress site. 
 
